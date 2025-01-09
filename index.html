@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">np
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API IBGE com Informações Adicionais</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/plugins/css/select2min.css">
+
+</head>
+<body class="bg-light">
+    <main class="container mt-5">
+         <!-- Seção que contém o formulário e a exibição dos dados -->
+        <section>
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"> API IBGE com Informações Adicionais</h5>
+
+                </div>
+                <div class="card-body">
+                    <form>  <!-- Início do formulário -->
+                        <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label" for="uf">Selecione o Estado (UF)</label>
+                            <select class="form-control" onchange="carregaMunicipios()" id="uf" aria-label="Seleção de Estado"></select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label" for="localidade">Selecione a Cidade</label>
+                            <select class="form-control" id="localidade" aria-label="Seleção de Estado"></select>
+                        </div>
+
+                        <!-- Nova área para exibir informações da UF -->
+                         <div class="row mb-4">
+                        <div class="col-12">
+                            <label class="form-label">Informações do Estado selecionado</label>
+                            <div id="infoUF" class="p-3 border rounded bg-light"></div> <!-- Aqui mostraremos a região e a população -->
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Enviar Consulta</button>  
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/plugins/js/select2min.js"></script>
+    <script>
+        // Inicialização com o plugin Select2 (opcional)
+        $(document).ready(function() {
+            $('#uf').select2();
+            $('#localidade').select2();
+        });
+    </script>
+</body>
+</html>
